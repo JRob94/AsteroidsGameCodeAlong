@@ -109,7 +109,7 @@ kbd {
         display: flex;
         justify-content: center;
         align-items: center;
-        column-rule: #fff;
+        color: #fff;
         font-family: 'Orbitron', sans-serif;
         font-size: 25px;
         text-align: center;
