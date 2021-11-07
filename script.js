@@ -1,0 +1,27 @@
+// Creating global variable for use in the file
+const FPS = 30; // Setting the frames per second
+const friction = 0.5; // Friction coefficient of space
+const shipBlinkDuration = 0.1; // In seconds
+const shipExplodeDuration = 0.3;
+const shipInvisibilityDuration = 3; // In seconds
+const shipSize = 30; // Height in pixels
+const shipThrust = 5; // Acceleration of the ship in pixels per second
+const shipTurnSpeed = 360; // Degrees per second
+const laserDist = 0.4; // Max distance laser can travel
+const laserExplodeDuration = 0.1;
+const laserMax = 10; // Number of lasers allowed on the screen at one time
+const laserSpeed = 500; // Pixels per second
+const roidsJag = 0.3; // Jaggedness of asteroids
+const roidsNum = 1; // Starting number of asteroids
+const roidsSize = 100; // Starting size of asteroids in pixels
+const roidsSpeed = 50; // Max pixels per second
+const roidsVert = 10; //Average number of vertices on each asteroid
+const gameLives = 3; // Starting number of lives
+const textFadeTime = 3; // In seconds
+const textSize = 40; // In pixels
+const roidLargePts = 20; // Points scored for large asteroids
+const roidMediumPts = 50; // Points scored for medium asteroids
+const roidSmallPts = 100; // Points scored for small asteroids
+const saveScore = `highScore`; // Save key for local storage
+let soundOn = false;
+let musicOn = false;
