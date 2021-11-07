@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Code along for an asteroids game using HTML, CSS, and JavaScript.">
+    <meta name="author" content="Jordan Roberts">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Asteroids Game</title>
+</head>
+
+<body>
+    <main tabindex="0">
+        <canvas id="gameCanvas" width="700" height="500"></canvas>
+    </main>
+        <div id="instructions">
+            <div class="commands"><kbd><i class="fas fa-arrow-up" aria-hidden="true" aria-label="up arrow key"></i></kbd>propel the ship</div>
+            <div class="commands"><kbd><i class="fas fa-arrow-left" aria-hidden="true" aria-label="left arrow key"></i></kbd><kbd><i class="fas fa-arrow-right" aria-hidden="true" aria-label="right arrow key"></i></kbd>move the ship</div>
+            <div class="commands"><kbd>Space</kbd>shoot lasers</div>
+        </div>
+        <div class="volume">
+            <i id="music" class="fas fa-music mute" aria-hidden="true" aria-label="sound off"></i>
+            <div id="sound"><i class="fas fa-volume-mute" aria-hidden="true" aria-label="sound off"></i></div>
+        </div>
+        <p id="alert">Sorry, you can't play from a mobile or a tablet...</p>
+
+        <!-- Link to JS file -->
+        <script src="script.js"></script>
+</body>
+
+</html>
