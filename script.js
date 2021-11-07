@@ -25,3 +25,67 @@ const roidSmallPts = 100; // Points scored for small asteroids
 const saveScore = `highScore`; // Save key for local storage
 let soundOn = false;
 let musicOn = false;
+
+let canvas = document.getElementById(`gameCanvas`);
+let context = document.getContext(`2d`);
+document.querySelector(`main`).focus();
+
+
+// SOUND EFFECTS
+function Sound(src, maxStreams = 1, vol = 1.0) {
+	this.streamNum = 0;
+	this.streams = [];
+	for (let i = 0; i < maxStreams; i++) {
+		this.streams.push(new Audio(src));
+		this.streams[i].volume = vol;
+	}
+	this.play = function () {
+		if (soundOn) {
+		this.streamNum = (this.streamNum + 1) % maxStreams;
+		this.streams[this.streamNum].play();
+		}
+	}
+	this.stop = function () {
+		this.streams[this.streamNum].pause();
+		this.streams[this.streamNum].currentTime = 0;
+	}
+}
+let laserSound = new Sound("https://margaux-dev.github.io/asteroids-game/asteroids-game-sounds/pew.m4a", 5, 0.4);
+let thrustSound = new Sound("https://margaux-dev.github.io/asteroids-game/asteroids-game-sounds/thrust.m4a");
+let hitSound = new Sound("https://margaux-dev.github.io/asteroids-game/asteroids-game-sounds/hit.m4a", 5, 0.8);
+let explosionSound = new Sound("https://margaux-dev.github.io/asteroids-game/asteroids-game-sounds/explosion.m4a", 1, 0.7);
+
+//MUSIC
+let music = new Music("https://margaux-dev.github.io/asteroids-game/asteroids-game-sounds/music-high.m4a","https://margaux-dev.github.io/asteroids-game/asteroids-game-sounds/music-low.m4a");
+let roidsLeft, roidsTotal;
+function Music (srcA, srcB) {
+	this.soundA = new Audio(srcA);
+	this.soundB = new Audio(srcB);
+	this.a = true;
+	this.tempo = 1.0;
+	this.beatTime = 0;
+	this.play = function () {
+		if (musicOn) {
+			if (this.a) {
+				this.soundA.play();
+			} else {
+				this.soundB.play();
+			}
+			this.a = !this.a;
+		}
+	}
+	this.setAsteroidRatio = function (ratio) {
+		this.tempo = 1 - 0.75 * (1 - ratio);
+	}
+	this.tick = function () {
+		if (this.beatTime === 0) {
+			this.play();
+			this.beatTime = Math.ceil(this.tempo * FPS);
+		} else {
+			this.beatTime--;
+		}
+	}
+}
+
+
+// SET UP GAME LOOP
