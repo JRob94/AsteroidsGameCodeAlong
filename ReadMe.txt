@@ -1,5 +1,7 @@
 This is a code along I did for a basic asteroids game using HTML, CSS, and JavaScript
 
+STILL WORK IN PROGRESS
+
 I DO NOT OWN THIS SOFTWARE
 
 Copyright (c) 2021 by Margaux Darriberouge (https://codepen.io/Margaux-dev/pen/XWXqRYX)
